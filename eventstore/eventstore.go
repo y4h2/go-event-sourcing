@@ -26,6 +26,14 @@ func (es *EventStore) ListEvents(entity, entityID string) (events []model.Event)
 	return events
 }
 
+func (es *EventStore) ListAll() (events []model.Event) {
+	return es.events
+}
+
+func (es *EventStore) CleanUp() {
+	es.events = []model.Event{}
+}
+
 func NewEventStore() *EventStore {
 	return &EventStore{
 		events: []model.Event{},

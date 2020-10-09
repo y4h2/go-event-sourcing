@@ -161,3 +161,9 @@ func (a *AccountEntity) GetBalance(ID string) (int, error) {
 
 	return balance, nil
 }
+
+func NewAccountEntity(es *eventstore.EventStore) *AccountEntity {
+	return &AccountEntity{
+		eventStore: es,
+	}
+}
